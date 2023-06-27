@@ -1,0 +1,34 @@
+[package]
+name = "rust-axum-service-sample"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# Data serialization
+serde = "1.0.137"
+serde_json = "1.0.81"
+serde_derive = "1.0.137"
+
+# Logging & tracing
+tracing = "0.1.34"
+tracing-subscriber = { version =  "0.3.11", features = ["json"] }
+
+# HTTP framework
+tokio = { version = "1.0", features = ["full"] }
+async-trait = "0.1"
+axum = "0.6"
+axum-macros = "0.3.4"
+hyper = "0.14.18"
+
+# SQL storage
+sqlx = { version = "0.6", optional = false, features = [ "runtime-tokio-native-tls" , "sqlite", "migrate" ] }
+
+# Error handling & Validation
+anyhow = "1.0.69"
+thiserror = "1.0.38"
+http-api-problem = { version = "0.56.0", features = [ "axum", "api-error" ] }
+validator = { version = "0.15", features = ["derive"] }
+
+[features]
